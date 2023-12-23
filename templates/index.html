@@ -41,8 +41,11 @@
     <h1 style="text-align: center; margin-top: 150px; font-size: 50px;">AI Music Generator</h1>
     <form style="margin-top: 100px;" method="POST" action="/generate_music">
         <div style="display: flex;">
-        <button style="margin: 10px; height: 50px; font-size: 20px; border-radius: 10px; border: 1px solid #efe2e2; background: #efe2e2;" type="button" id="sentence">Tell us your feelings</button><br>
-        <button style="margin: 10px; height: 50px; font-size: 20px; border-radius: 10px; border: 1px solid #efe2e2; background: #efe2e2;" type="button" id="word">Tell us your mood</button><br><br>
+            <!-- Hidden inputs acting as radio buttons -->
+            <input type="hidden" id="sentence" name="choice" value="1">
+            <button style="margin: 10px; height: 50px; font-size: 20px; border-radius: 10px; border: 1px solid #efe2e2; background: #efe2e2;" type="submit" id="sentenceButton">Tell us your feelings</button><br>
+            <input type="hidden" id="word" name="choice" value="2">
+            <button style="margin: 10px; height: 50px; font-size: 20px; border-radius: 10px; border: 1px solid #efe2e2; background: #efe2e2;" type="submit" id="wordButton">Tell us your mood</button><br><br>
         </div>
         <div id="sentenceInput" style="display: none;">
             <label style="margin-top: 10px;" for="user_text">Enter your feelings:</label>
@@ -73,12 +76,12 @@
     </audio>
 
     <script>
-        document.getElementById('sentence').addEventListener('click', function() {
+        document.getElementById('sentenceButton').addEventListener('click', function() {
             document.getElementById('sentenceInput').style.display = 'block';
             document.getElementById('moodInput').style.display = 'none';
         });
 
-        document.getElementById('word').addEventListener('click', function() {
+        document.getElementById('wordButton').addEventListener('click', function() {
             document.getElementById('sentenceInput').style.display = 'none';
             document.getElementById('moodInput').style.display = 'block';
         });
