@@ -1,0 +1,9 @@
+tensorflow==2.6.0
+keras
+numpy
+pandas
+midiutil
+librosa
+music21
+tqdm
+python_play

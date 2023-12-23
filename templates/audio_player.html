@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Playback Control</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Centering styles */
+        body, html {
+          background-color: #e1c6c6;
+            height: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: Georgia, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        /* Additional styles for form and audio player */
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button:hover {
+            background: #afa2a2;
+            border-color: #afa2a2;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body style="display: block;">
+    <h1 style="text-align: center; margin-top: 50px; font-size: 50px;">Your Music is Ready!</h1>
+    <div style="display: flex;">
+
+    <button style=" margin-left: 180px; padding: 10px; padding-left: 17px; padding-right: 15px; color: rgb(233, 215, 215); margin-top: 60px; height: 70px; width: 70px; font-size: 20px; border-radius: 100%; border: 1px solid #efe2e2; background: #571616 ;" onclick="startMusic()"><i class="fa fa-play" style="font-size:35px"></i></button>
+    <button style=" margin-left: 80px; padding: 10px; padding-left: 17px; padding-right: 15px; color: rgb(233, 215, 215); margin-top: 60px; height: 70px; width: 70px; font-size: 20px; border-radius: 100%; border: 1px solid #efe2e2; background: #571616 ;" onclick="stopMusic()"><i class="fa fa-stop" style="font-size:35px"></i></button>
+    </div>
+    <script>
+        function startMusic() {
+            fetch('/start_music')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to start music.');
+                    }
+                    console.log('Music started.');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        function stopMusic() {
+            fetch('/stop_music')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to stop music.');
+                    }
+                    console.log('Music stopped.');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+</html>

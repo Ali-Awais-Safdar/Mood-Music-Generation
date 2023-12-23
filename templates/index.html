@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate Music</title>
+    <style>
+        /* Centering styles */
+        body, html {
+          background-color: #e1c6c6;
+            height: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: Georgia, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        /* Additional styles for form and audio player */
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button:hover {
+            background: #312929;
+            border-color: #5a4a4a;
+            cursor: pointer;
+        }
+        input:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+  <div>
+    <h1 style="text-align: center; margin-top: 150px; font-size: 50px;">AI Music Generator</h1>
+    <form style="margin-top: 100px;" method="POST" action="/generate_music">
+        <div style="display: flex;">
+        <button style="margin: 10px; height: 50px; font-size: 20px; border-radius: 10px; border: 1px solid #efe2e2; background: #efe2e2;" type="button" id="sentence">Tell us your feelings</button><br>
+        <button style="margin: 10px; height: 50px; font-size: 20px; border-radius: 10px; border: 1px solid #efe2e2; background: #efe2e2;" type="button" id="word">Tell us your mood</button><br><br>
+        </div>
+        <div id="sentenceInput" style="display: none;">
+            <label style="margin-top: 10px;" for="user_text">Enter your feelings:</label>
+            <input type="text" id="user_text" name="user_text">
+            <br><br>
+        </div>
+
+        <div id="moodInput" style="display: none;">
+            <label style="margin-top: 10px;" for="predefined_mood">Select your mood:</label>
+            <select style="border-radius: 10px; width: 150px; height: 30px; font-size: 15px;" id="predefined_mood" name="predefined_mood">
+                <option value="Aggressive">Aggressive</option>
+                <option value="Dramatic">Dramatic</option>
+                <option value="Happy">Happy</option>
+                <option value="Romantic">Romantic</option>
+                <option value="Sad">Sad</option>
+            </select>
+            <br><br>
+        </div>
+
+        <input style=" padding: 10px; color: rgb(233, 215, 215); margin-top: 60px; height: 50px; font-size: 20px; border-radius: 10px; border: 1px solid #efe2e2; background: #5f1e1e ;" type="submit" value="Generate Music">
+    </form>
+
+    <!-- Audio player section --> 
+    <audio controls id="audioPlayer" style="display: none;">
+        <!-- Include a source tag with a path to the generated music -->
+        <source src="" type="audio/midi">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        document.getElementById('sentence').addEventListener('click', function() {
+            document.getElementById('sentenceInput').style.display = 'block';
+            document.getElementById('moodInput').style.display = 'none';
+        });
+
+        document.getElementById('word').addEventListener('click', function() {
+            document.getElementById('sentenceInput').style.display = 'none';
+            document.getElementById('moodInput').style.display = 'block';
+        });
+    </script>
+  </div>
+</body>
+</html>
