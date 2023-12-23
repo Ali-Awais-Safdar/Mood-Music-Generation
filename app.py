@@ -26,7 +26,8 @@ def generate_music():
         mood = request.form['predefined_mood']
         generated_file_path = generate(mood)
 
-    return redirect(url_for('play_music'))
+    return render_template('audio_player.html', mapped_mood=mapped_mood)
+
 
 @app.route('/play_music')
 def play_music():
