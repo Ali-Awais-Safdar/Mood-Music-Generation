@@ -8,7 +8,7 @@
         body, html {
           background-color: #e1c6c6;
             height: 60%;
-            display: flex;
+            display: block;
             justify-content: center;
             align-items: center;
             margin: 0;
@@ -37,19 +37,18 @@
     </style>
 </head>
 <body>
-  <div>
     <h1 style="text-align: center; margin-top: 150px; font-size: 50px;">AI Music Generator</h1>
-    <form style="margin-top: 100px;" method="POST" action="/generate_music">
-        <div style="display: flex;">
-            <!-- Hidden inputs acting as radio buttons -->
-            <input type="hidden" id="sentence" name="choice" value="1">
-            <button style="margin: 10px; height: 50px; font-size: 20px; border-radius: 10px; border: 1px solid #efe2e2; background: #efe2e2;" type="submit" id="sentenceButton">Tell us your feelings</button><br>
-            <input type="hidden" id="word" name="choice" value="2">
-            <button style="margin: 10px; height: 50px; font-size: 20px; border-radius: 10px; border: 1px solid #efe2e2; background: #efe2e2;" type="submit" id="wordButton">Tell us your mood</button><br><br>
+    <form style="margin-top: 80px;" method="POST" action="/generate_music">
+        <label style="text-align: center; margin-bottom: 10px; font-size: 20px;" for="choice">Choose an option:</label><br>
+        <div style="align-items: center; display: block;">
+        <input type="radio" id="sentence" name="choice" value="1">
+        <label style="font-size: 25px; " for="sentence">Generate music from sentence</label><br>
+        <input type="radio" id="word" name="choice" value="2">
+        <label style="font-size: 25px; " for="word">Generate music from predefined mood</label><br><br>
         </div>
         <div id="sentenceInput" style="display: none;">
-            <label style="margin-top: 10px;" for="user_text">Enter your feelings:</label>
-            <input type="text" id="user_text" name="user_text">
+            <label for="user_text">How are you feeling?</label>
+            <input style="border-radius: 10px; width: 150px; height: 30px; font-size: 15px;" type="text" id="user_text" name="user_text">
             <br><br>
         </div>
 
@@ -68,7 +67,7 @@
         <input style=" padding: 10px; color: rgb(233, 215, 215); margin-top: 60px; height: 50px; font-size: 20px; border-radius: 10px; border: 1px solid #efe2e2; background: #5f1e1e ;" type="submit" value="Generate Music">
     </form>
 
-    <!-- Audio player section --> 
+    <!-- Audio player section -->
     <audio controls id="audioPlayer" style="display: none;">
         <!-- Include a source tag with a path to the generated music -->
         <source src="" type="audio/midi">
@@ -76,16 +75,15 @@
     </audio>
 
     <script>
-        document.getElementById('sentenceButton').addEventListener('click', function() {
+        document.getElementById('sentence').addEventListener('click', function() {
             document.getElementById('sentenceInput').style.display = 'block';
             document.getElementById('moodInput').style.display = 'none';
         });
 
-        document.getElementById('wordButton').addEventListener('click', function() {
+        document.getElementById('word').addEventListener('click', function() {
             document.getElementById('sentenceInput').style.display = 'none';
             document.getElementById('moodInput').style.display = 'block';
         });
     </script>
-  </div>
 </body>
 </html>
