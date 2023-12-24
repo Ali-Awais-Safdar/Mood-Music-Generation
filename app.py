@@ -10,10 +10,10 @@ generated_file_path = None  # Global variable to store the generated file path
 @app.route('/')
 def index():
     return render_template('index.html')
-
 @app.route('/generate_music', methods=['POST'])
 def generate_music():
     global generated_file_path
+    mapped_mood = None
 
     choice = int(request.form['choice'])
 
@@ -24,14 +24,15 @@ def generate_music():
         generated_file_path = generate(mapped_mood)
     elif choice == 2:
         mood = request.form['predefined_mood']
+        mapped_mood = mood
         generated_file_path = generate(mood)
 
-    return render_template('audio_player.html', mapped_mood=mapped_mood)
-
+    return redirect(url_for('play_music', mapped_mood=mapped_mood))
 
 @app.route('/play_music')
 def play_music():
-    return render_template('audio_player.html')
+    mapped_mood = request.args.get('mapped_mood')
+    return render_template('audio_player.html', mapped_mood=mapped_mood)
 
 @app.route('/start_music')
 def start_music():
