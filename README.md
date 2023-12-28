@@ -2,6 +2,9 @@
 
 This project leverages deep learning techniques and emotion analysis to generate music based on user input or predefined moods. The model is implemented in a Jupyter Notebook (music_generation.ipynb) and utilizes the Spotify Basic Pitch model for efficient conversion of WAV files to MIDI files with minimal information loss. The dataset used for training and testing the model is available on Kaggle: [Music Classification Dataset.](https://www.kaggle.com/datasets/shanmukh05/music-classification)
 
+## DEMO OF PROJECT
+https://www.canva.com/design/DAF4NXdQ5zc/e_Xo7DcMfI3qC5WGET3sZw/edit?utm_content=DAF4NXdQ5zc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 ## Overview
 The model is trained using TensorFlow and Keras, employing LSTM layers for music generation. It incorporates a pre-trained emotion classification model from the Transformers library to map user input text to a predicted mood. The generated mood is then used to create music that aligns with the user's emotions.
 
