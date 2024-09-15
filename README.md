@@ -14,7 +14,7 @@ The model is trained using TensorFlow and Keras, employing LSTM layers for music
 - Music Generation
 - Mood Classification
 - User Input
-- Dependencies
+- User Interface
 
 ## Dependencies
 Ensure that you have the following dependencies installed before running the Jupyter Notebook:
