@@ -16,6 +16,7 @@ The model is trained using TensorFlow and Keras, employing LSTM layers for music
 - User Input
 - Dependencies
 
+## Dependencies
 Ensure that you have the following dependencies installed before running the Jupyter Notebook:
 
 - TensorFlow
@@ -33,7 +34,9 @@ Ensure that you have the following dependencies installed before running the Jup
 
 You can install these dependencies using the following:
 
-#### !pip install tensorflow keras midiutil music21 librosa wave python_play IPython tqdm transformers
+```
+!pip install tensorflow keras midiutil music21 librosa wave python_play IPython tqdm transformers
+```
 
 ## Data Preprocessing
 The data preprocessing section in the notebook includes functions to convert audio files (in WAV format) into MIDI files using the Spotify Basic Pitch model. The MIDI files are then organized into a structured dataset for further training.
@@ -44,9 +47,10 @@ The music generation section involves functions for generating music sequences b
 To train the model for all moods with respective checkpoints for each mood uncomment the train for each mood loop in def main():
 
 To generate music for a given mood, use the provided function:
-
-    # for mood in ['Aggressive', 'Dramatic', 'Happy', 'Romantic', 'Sad']:
-    #     train_network(mood)
+```
+    for mood in ['Aggressive', 'Dramatic', 'Happy', 'Romantic', 'Sad']:
+         train_network(mood)
+```
 
 ## Mood Classification
 The mood classification section uses a pre-trained emotion classification model from the Transformers library. It maps user input text to a predicted mood, which is then used for music generation.
